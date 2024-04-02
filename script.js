@@ -1,3 +1,4 @@
+
 let api_key = "8db5f7-f1f0ea-d9384d-293482-6d16bd";
 
 // retrieve and display current to do items
@@ -34,8 +35,8 @@ function add_todo(event) {
         console.log(this.responseText);
     }
   };
-
   xhttp_add.open("POST", "https://cse204.work/todos", true);
+  document.getElementById("new_todo").value = "";
 
   xhttp_add.setRequestHeader("Content-type", "application/json");
   xhttp_add.setRequestHeader("x-api-key", api_key);
@@ -46,7 +47,7 @@ document.getElementById("create_todo").addEventListener("submit", add_todo);
 
 function display_todo(task) {
   let list_item = document.createElement("section");
-  list_item.setAttribute("class", task);
+  list_item.classList.add("task");
   list_item.setAttribute("id", task.id);
   if (task.completed) {
     list_item.classList.add("completed");
@@ -66,6 +67,7 @@ function display_todo(task) {
   delete_button.classList.add("delete");
   delete_button.addEventListener("click", delete_task);
   list_item.appendChild(delete_button);
+  delete_button.innerText = "X";
 
   document.getElementById("todo_list").appendChild(list_item);
 }
@@ -82,7 +84,8 @@ function delete_task(event) {
       console.log(this.responseText);
     }
   };
-  xhttp_delete.open("DELETE", "https://cse204.work/todos/"+task_id, true);
+  let url = `https://cse204.work/todos/${task_id}`;
+  xhttp_delete.open("DELETE", url, true);
   xhttp_delete.setRequestHeader("Content-type", "application/json");
   xhttp_delete.setRequestHeader("x-api-key", api_key);
   xhttp_delete.send();

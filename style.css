@@ -1,3 +1,61 @@
-.completed {
-  color: red;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.completed > p {
+  text-decoration: line-through;
+}
+
+.complete {
+  background-color: transparent;
+  height: 15px;
+  width: 15px;
+  padding: 5px 5px;
+  border: 1px solid black;
+}
+
+.delete {
+  background-color: transparent;
+  height: 15px;
+  width: 15px;
+  padding: 0px;
+  margin: 0px;
+  border: 0px solid black;
+}
+
+.completed > .complete {
+  background-color: black;
+}
+
+.task {
+  display: flex;
+  flex-direction: row;
+  width: 50vw;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#create_todo {
+  width: 50vw;
+}
+
+#new_todo {
+  width: 90%;
+  margin: 10px 0px;
+  padding: 10px 0px;
+  border: 0px solid black;
+  border-bottom: 1px solid black;
+}
+
+#new_todo_button {
+  width: 8%;
+  margin: 10px 0px;
+  padding: 0px;
+  background-color: transparent;
+  border: 0px solid black;
 }
